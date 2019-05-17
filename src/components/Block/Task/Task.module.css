@@ -12,3 +12,8 @@
     border-bottom: 1px dashed #eee;
 }
 
+.Delete {
+    color: red;
+    text-align: end;
+    cursor: pointer;
+}
