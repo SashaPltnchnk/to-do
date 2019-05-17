@@ -1,0 +1,46 @@
+.FormStyle{
+	font: 95% Arial, Helvetica, sans-serif;
+	width: 30%;
+	margin: 10px auto;
+	padding: 16px;
+    background: #F7F7F7;
+    border-radius: 5px;
+}
+
+.FormStyle input[type="text"],
+.FormStyle textarea
+{
+    transition: all 0.30s ease-in-out;
+	box-sizing: border-box;
+	width: 100%;
+	background: #fff;
+	margin-bottom: 4%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+	padding: 3%;
+	color: #555;
+	font: 95% Arial, Helvetica, sans-serif;
+}
+.FormStyle input[type="text"]:focus,
+.FormStyle textarea:focus
+{
+	box-shadow: 0 0 5px #43D1AF;
+	padding: 3%;
+	border: 1px solid #43D1AF;
+}
+
+.Button {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 3%;
+	background: #43D1AF;
+	border-bottom: 2px solid #30C29E;
+	border-top-style: none;
+	border-right-style: none;
+    border-left-style: none;	
+    border-radius: 5px;
+	color: #fff;
+}
+.Button:hover {
+	background: #2EBC99;
+}
