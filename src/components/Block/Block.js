@@ -5,7 +5,8 @@ import axios from '../../axios-todos';
 
 class Block extends Component {
     state = {
-        showTask: true
+        showTask: true,
+        taskData: []
     }
 
     deleteTask = () => {
@@ -13,9 +14,9 @@ class Block extends Component {
     }
 
     componentDidMount() {
-        axios.get('tasks.json')
+        axios.get('/todos/')
             .then( res => {
-                console.log(res);
+                this.setState({ taskData: res.data })
             })
             .catch( err => {
                 console.error(err);
@@ -23,11 +24,13 @@ class Block extends Component {
     }
 
   render() {
+    let newTaskData = this.state.taskData.map(todo => {
+      return <Task {...todo} key={todo.id}/>
+    })
+
     return (
       <div>
-        {
-            this.state.showTask ? <Task delete={this.deleteTask} /> : null
-        }
+        {newTaskData}
       </div>
     )
   }
