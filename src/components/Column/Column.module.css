@@ -1,0 +1,45 @@
+.Column {
+    background-color: #d0f5ec;
+    display: flex;
+    flex-basis: 25%;
+    margin: 0 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    flex-direction: column;
+    
+}
+
+.ColumnPure {
+    background-color: #6fad9e59;
+    display: flex;
+    flex-basis: 25%;
+    margin: 0 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    height: 25px;
+    align-items: center;
+}
+
+.AddList {
+    color: #3c3838;
+    height: 20px;
+    border: none;
+    background: transparent;
+}
+
+.AddList:hover,
+.AddList:focus {
+    outline: none;
+}
+
+.ListName {
+    padding-bottom: 10px;
+}
+
+.CardTitle {
+    background-color: #fff;
+    border-radius: 3px;
+    margin: 10px 0;
+    padding: 5px 10px;
+    cursor: pointer;
+}

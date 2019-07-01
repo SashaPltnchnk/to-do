@@ -1,4 +1,6 @@
 .Layout {
     background-color: #b4efe1;
     height: 89vh;
+    padding: 30px 10px;
+    display: flex;
 }
