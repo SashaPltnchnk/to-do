@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux'
+import { addTask, fetchTasks } from '../../store/actions/task'
 
 import classes from './CreateNewToDos.module.css';
+
+
 
 class CreateNewToDos extends Component {
   state = {
@@ -19,26 +22,23 @@ class CreateNewToDos extends Component {
     })
   }
 
-  // addNewTask = () => {
-  //   let data = this.state;
-  //   axios.post('/todos/', data)
-  //   .then(res => {
-  //     console.log(res);
-  //   })
-  //   .catch(err => {
-  //     console.error(err);
-  //   })
-  // }
-
-  submitHandler = (e) => {
-    e.preventDefault();
-    this.addNewTask();
+  addNewTask = () => {
+    console.log("addnewtask")
+    let data = this.state;
+    this.props.addTask(data)
+      .then(() => {this.props.fetchTasks()})
   }
+
+  // submitHandler = e => {
+  //   console.log("submit")
+  //   e.preventDefault();
+  //   this.addNewTask();
+  // }
 
   render() {
     return (
       <div className={classes.FormStyle}>
-        <form onSubmit={this.submitHandler}>
+        {/* <form onSubmit={this.submitHandler}> */}
           <input 
             type="text" 
             name="title" 
@@ -52,11 +52,12 @@ class CreateNewToDos extends Component {
             className={classes.Button}
             onClick={this.addNewTask}
             >ADD NEW CARD</button>
-        </form>
+        {/* </form> */}
       </div>
     )
   }
 }
 
+const mapDispatchToProps = { addTask, fetchTasks };
 
-export default CreateNewToDos;
+export default connect(null, mapDispatchToProps)(CreateNewToDos);

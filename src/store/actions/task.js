@@ -12,17 +12,17 @@ export const fetchTasks = () => ({
     }
 });
 
-// export const addTask = (data) => ({
-//     type: ADD_TASK,
-//     request: {
-//         url: '/todos/',
-//         method: 'POST',
-//         data
-//     },
-//     meta: {
-//         asPromise: true
-//     }
-// });
+export const addTask = (data) => ({
+    type: ADD_TASK,
+    request: {
+        url: '/todos/',
+        method: 'POST',
+        data
+    },
+    meta: {
+        asPromise: true
+    }
+});
 
 export const deleteTask = (id) => ({
     type: DELETE_TASK,

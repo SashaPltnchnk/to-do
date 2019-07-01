@@ -6,6 +6,8 @@
     margin: 10px auto;
     box-sizing: border-box;
     border-radius: 5px;
+    position: relative;
+    text-align: center;
 }
 
 .Title {
@@ -16,4 +18,13 @@
     color: red;
     text-align: end;
     cursor: pointer;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    font-weight: bold;
+    display: flex;
+    right: 10px;
+    font-size: large;
+    top: 5px;
 }

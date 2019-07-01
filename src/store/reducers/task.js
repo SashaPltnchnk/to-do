@@ -17,20 +17,16 @@ const reducer = (state = initialState, action) => {
         case error(actionTypes.FETCH_TASKS): 
             console.error(action.error.message)
             return state;
-        // case success(actionTypes.ADD_TASK):
-        //     return {
-        //         ...state,
-        //        events: [
-        //            ...state.events,
-        //            convert(action.data)
-        //        ]
-        //     };
-        // case error(actionTypes.ADD_TASK):
-        //     return {
-        //         ...state,
-        //         err: action.error.response.data.message
-        //     }   
-
+        case success(actionTypes.ADD_TASK):
+            return {
+                ...state,
+               tasks: [
+                   ...state.tasks
+               ]
+            };
+        case error(actionTypes.ADD_TASK):
+            console.error(action.error)
+            return state;   
     
             
         default: return state;

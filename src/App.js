@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
-import Block from './components/Block/Block';
-import CreateNewToDos from './components/CreateNewToDos/CreateNewToDos';
+import Header from './components/Header/Header'
+import Layout from './components/Layout/Layout'
 
 function App() {
   return (
-    <div className="App">
-      {/* <CreateNewToDos /> */}
-      <Block />
-    </div>
+    <>
+      <Header />
+      <Layout />
+    </>
   );
 }
 
