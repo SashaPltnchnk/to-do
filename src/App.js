@@ -6,7 +6,7 @@ import CreateNewToDos from './components/CreateNewToDos/CreateNewToDos';
 function App() {
   return (
     <div className="App">
-      <CreateNewToDos />
+      {/* <CreateNewToDos /> */}
       <Block />
     </div>
   );

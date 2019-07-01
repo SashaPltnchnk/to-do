@@ -1,25 +1,14 @@
 import React, { Component } from 'react';
-import Task from './Task/Task';
-import axios from '../../axios-todos';
+import Task from './Task/Task'
 import { connect } from 'react-redux'
 import { fetchTasks } from '../../store/actions/task'
 
 
 
 class Block extends Component {
-  // state = {
-  //   taskData: []
-  // }
 
   componentDidMount() {
     this.props.fetchTasks()
-    // axios.get('/todos/')
-    //   .then( res => {
-    //       this.setState({ taskData: res.data })
-    //   })
-    //   .catch( err => {
-    //       console.error(err);
-    //   })
   }
 
   render() {

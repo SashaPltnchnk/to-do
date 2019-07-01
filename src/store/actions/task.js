@@ -24,16 +24,16 @@ export const fetchTasks = () => ({
 //     }
 // });
 
-// export const deleteTask = (id) => ({
-//     type: DELETE_TASK,
-//     request: {
-//         url: `/todos/${id}`,
-//         method: 'DELETE',
-//     },
-//     meta: {
-//         asPromise: true
-//     }
-// });
+export const deleteTask = (id) => ({
+    type: DELETE_TASK,
+    request: {
+        url: `/todos/${id}`,
+        method: 'DELETE',
+    },
+    meta: {
+        asPromise: true
+    }
+});
 
 
 // export const removeError = () => dispatch => {

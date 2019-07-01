@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from '../../axios-todos';
+
 
 import classes from './CreateNewToDos.module.css';
 
@@ -19,16 +19,16 @@ class CreateNewToDos extends Component {
     })
   }
 
-  addNewTask = () => {
-    let data = this.state;
-    axios.post('/todos/', data)
-    .then(res => {
-      console.log(res);
-    })
-    .catch(err => {
-      console.error(err);
-    })
-  }
+  // addNewTask = () => {
+  //   let data = this.state;
+  //   axios.post('/todos/', data)
+  //   .then(res => {
+  //     console.log(res);
+  //   })
+  //   .catch(err => {
+  //     console.error(err);
+  //   })
+  // }
 
   submitHandler = (e) => {
     e.preventDefault();

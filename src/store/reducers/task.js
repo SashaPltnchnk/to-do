@@ -9,7 +9,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch(action.type) {
         case success(actionTypes.FETCH_TASKS):
-            console.log(action.data)
+            // console.log(action.data)
             return {
                 ...state,
                 tasks: action.data
