@@ -39,19 +39,19 @@ class CreateNewToDos extends Component {
     return (
       <div className={classes.FormStyle}>
         <form onSubmit={this.submitHandler}>
-            <input 
-              type="text" 
-              name="title" 
-              placeholder="Type a title"
-              onChange={this.changeInput} />
-            <textarea 
-              name="body" 
-              placeholder="Type a text"
-              onChange={this.changeInput}></textarea>
-            <button 
-              className={classes.Button}
-              onClick={this.addNewTask}
-              >ADD NEW CARD</button>
+          <input 
+            type="text" 
+            name="title" 
+            placeholder="Type a title"
+            onChange={this.changeInput} />
+          <textarea 
+            name="body" 
+            placeholder="Type a text"
+            onChange={this.changeInput}></textarea>
+          <button 
+            className={classes.Button}
+            onClick={this.addNewTask}
+            >ADD NEW CARD</button>
         </form>
       </div>
     )
