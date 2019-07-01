@@ -1,0 +1,18 @@
+.TaskInfo {
+    background-color: #d0f5ec;
+    height: 80vh;
+    width: 75vw;
+    border-radius: 35px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.TaskTitle {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.TaskDescription {
+    font-size: 20px;
+
+}

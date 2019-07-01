@@ -1,0 +1,20 @@
+.Modal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(109, 122, 119, 0.493);
+    top: 0;
+    left: 0;
+    display: flex;
+    z-index: 999;
+    transition: 0.3s;
+    justify-content: center;
+    align-items: center;
+}
+
+.CloseIcon {
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
