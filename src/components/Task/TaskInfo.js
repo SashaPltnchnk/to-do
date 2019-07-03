@@ -18,10 +18,13 @@ class TaskInfo extends Component {
             todo: this.props.tasks.find(task => task.id === this.props._id)}))
     }
 
-    // handleDeletingTasks = () => {
-    //     this.props.deleteTask(this.props.id)
-    //         .then(() => {this.props.fetchTasks()})
-    // }
+    handleDeletingTasks = id => {
+        this.props.deleteTask(id)
+            .then(() => {
+                this.props.fetchTasks()
+                this.props.closeTaskInfo()
+            })
+    }
     
     render () {
         // console.warn(this.state.todo)
@@ -35,7 +38,7 @@ class TaskInfo extends Component {
                 <div className={classes.TaskDescription}>{this.state.todo.body}</div>
                 <div 
                     className={classes.TaskDelete} 
-                    // onClick={this.handleDeletingTasks}
+                    onClick={() => this.handleDeletingTasks(this.props._id)}
                     >DELETE task</div>
             </div>
         )

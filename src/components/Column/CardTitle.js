@@ -23,6 +23,10 @@ class CardTitle extends Component {
     this.setState({currentId: id})
   }
 
+  closeTaskInfo = () => {
+    this.setState({isTaskInfoShown: false})
+  }
+
   render() {
     let newTaskData = this.props.tasks.map(todo => {
       return (
@@ -33,7 +37,11 @@ class CardTitle extends Component {
             id={todo.id}
             onClick={() => this.openTaskInfo(todo.id)}>
                 {todo.title} 
-                {this.state.isTaskInfoShown ? <Modal id={this.state.currentId} /> : null}
+                {this.state.isTaskInfoShown ? 
+                  <Modal 
+                    id={this.state.currentId} 
+                    closeTaskInfo={this.closeTaskInfo}/> 
+                  : null}
         </div>)
     })
 

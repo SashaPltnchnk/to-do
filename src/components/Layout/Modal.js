@@ -7,7 +7,7 @@ export default function Modal(props) {
     // console.log(props)
     return (
         <div className={classes.Modal}>
-            <TaskInfo  _id={props.id}/>
+            <TaskInfo  _id={props.id} closeTaskInfo={props.closeTaskInfo}/>
         </div>
     )
 }
