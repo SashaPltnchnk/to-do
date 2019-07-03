@@ -14,7 +14,8 @@ export default function Modal(props) {
             >
                 x
             </button>
-            <TaskInfo  _id={props.id} closeTaskInfo={props.closeTaskInfo}/>
+            {props.children}
+            {/* <TaskInfo  _id={props.id} closeTaskInfo={props.closeTaskInfo}/> */}
         </div>
     )
 }

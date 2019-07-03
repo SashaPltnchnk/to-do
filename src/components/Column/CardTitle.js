@@ -5,6 +5,7 @@ import { fetchTasks } from '../../store/actions/task'
 import Modal from '../Layout/Modal'
 
 import classes from './Column.module.css'
+import TaskInfo from '../Task/TaskInfo';
 
 
 
@@ -39,8 +40,11 @@ class CardTitle extends Component {
                 {todo.title} 
                 {this.state.isTaskInfoShown ? 
                   <Modal 
-                    id={this.state.currentId} 
-                    closeTaskInfo={this.closeTaskInfo}/> 
+                    // id={this.state.currentId} 
+                    closeTaskInfo={this.closeTaskInfo}
+                    > 
+                    <TaskInfo  _id={this.state.currentId} closeTaskInfo={this.closeTaskInfo}/>
+                  </Modal> 
                   : null
                 }
         </div>)

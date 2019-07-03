@@ -6,7 +6,7 @@ import classes from './Column.module.css'
 
 class AddCardTitle extends Component{
     state = {
-        body: '',
+        // body: '',
         title: ''
       }
     
