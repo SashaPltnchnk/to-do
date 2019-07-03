@@ -14,5 +14,14 @@
 
 .TaskDescription {
     font-size: 20px;
+}
 
+.TaskDelete {
+    bottom: 20%;
+    right: 20%;
+    color: #d02323;
+    text-transform: lowercase;
+    font-weight: bold;
+    position: absolute;
+    cursor: pointer;
 }
