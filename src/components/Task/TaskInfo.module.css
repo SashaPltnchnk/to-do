@@ -16,6 +16,11 @@
     font-size: 20px;
 }
 
+.Description {
+    cursor: default;
+    font-size: 20px;
+}
+
 .TaskDelete {
     bottom: 20%;
     right: 20%;

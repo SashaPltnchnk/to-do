@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import classes from './Column.module.css'
 
-class AddCard extends Component{
+class AddCardTitle extends Component{
     state = {
         body: '',
         title: ''
@@ -50,4 +50,4 @@ class AddCard extends Component{
 
 const mapDispatchToProps = { addTask, fetchTasks };
 
-export default connect(null, mapDispatchToProps)(AddCard)
+export default connect(null, mapDispatchToProps)(AddCardTitle)

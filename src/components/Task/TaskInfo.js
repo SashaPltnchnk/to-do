@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { deleteTask, fetchTasks } from '../../store/actions/task'
+import { deleteTask, fetchTasks, addTask } from '../../store/actions/task'
+import AddTaskDescription from './AddTaskDescription'
 
 import classes from './TaskInfo.module.css'
+
 
 class TaskInfo extends Component {
     state = {
@@ -17,6 +19,7 @@ class TaskInfo extends Component {
             ...state,
             todo: this.props.tasks.find(task => task.id === this.props._id)}))
     }
+   
 
     handleDeletingTasks = id => {
         this.props.deleteTask(id)
@@ -29,13 +32,16 @@ class TaskInfo extends Component {
     render () {
         // console.warn(this.state.todo)
         // console.log(this.props._id)
-        
+        const description = this.state.todo.body 
+            ? <div className={classes.TaskDescription}>{this.state.todo.body}</div>
+            :   <AddTaskDescription />
     
         return (
             <div className={classes.TaskInfo}>
                 <div className={classes.TaskTitle}>{this.state.todo.title}</div>
-                <div className={classes.TaskDescription}>Description</div>
-                <div className={classes.TaskDescription}>{this.state.todo.body}</div>
+                <div className={classes.Description}>Description</div>
+                {description}
+
                 <div 
                     className={classes.TaskDelete} 
                     onClick={() => this.handleDeletingTasks(this.props._id)}
@@ -52,6 +58,6 @@ const mapStateToProps = state => {
     }
   }
 
-const mapDispatchToProps = { deleteTask, fetchTasks };
+const mapDispatchToProps = { deleteTask, fetchTasks, addTask };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskInfo)

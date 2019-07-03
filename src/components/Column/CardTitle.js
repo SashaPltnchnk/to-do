@@ -19,12 +19,12 @@ class CardTitle extends Component {
   }
 
   openTaskInfo = id => {
-    this.setState({isTaskInfoShown: true})
-    this.setState({currentId: id})
+    this.setState({isTaskInfoShown: true, currentId: id})
   }
 
   closeTaskInfo = () => {
-    this.setState({isTaskInfoShown: false})
+    console.log("fucking shit")
+    this.setState({isTaskInfoShown: false, currentId: null})
   }
 
   render() {
@@ -41,14 +41,14 @@ class CardTitle extends Component {
                   <Modal 
                     id={this.state.currentId} 
                     closeTaskInfo={this.closeTaskInfo}/> 
-                  : null}
+                  : null
+                }
         </div>)
     })
 
     return (
       <div>
         {newTaskData}
-        
       </div>
     )
   }

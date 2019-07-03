@@ -14,7 +14,21 @@
 
 .CloseIcon {
     cursor: pointer;
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 10px;
+    position: absolute;
+    top: 10%;
+    right: 15%;
+    color: #d02323;
+    font-weight: bold;
+    font-size: larger;
+    background-color: transparent;
+    border: transparent 1px solid;
+    padding: 10px;
+    outline: none;
+}
+
+.CloseIcon:hover,
+.CloseIcon:focus {
+    border: green 1px solid;
+    border-radius: 3px;
+    box-sizing: border-box;
 }

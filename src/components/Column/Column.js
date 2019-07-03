@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import AddList from './AddList'
-import AddCard from './AddCard'
+import AddCardTitle from './AddCardTitle'
 import CardTitle from './CardTitle'
 
 import classes from './Column.module.css'
@@ -12,7 +12,7 @@ class Column extends Component {
                 <div className={classes.Column}>
                     <div className={classes.ListName}>List Name</div>
                     <CardTitle />
-                    <AddCard/>
+                    <AddCardTitle />
                 </div>
                 <div className={classes.ColumnPure}>
                     <AddList />
