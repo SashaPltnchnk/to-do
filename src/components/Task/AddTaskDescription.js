@@ -7,7 +7,7 @@ import classes from '../Column/Column.module.css'
 class AddTaskDescription extends Component{
     state = {
         body: '',
-        title: ''
+        // title: ''
       }
     
       changeInput = (e) => {
@@ -23,7 +23,7 @@ class AddTaskDescription extends Component{
 
     submitHandler = e => {
         e.preventDefault();
-        this.props.addTask({body: this.state.body, title: this.props.title})
+        this.props.addTask({body: this.state.body})
           .then(() => {
               console.warn("allo")
             this.setState({body: ''});
@@ -33,7 +33,7 @@ class AddTaskDescription extends Component{
     }
 
     render() {
-        // console.log(this.props)
+        console.log(this.props)
         return (
             <form className={classes.AddCard} onSubmit={this.submitHandler}>
                 <input 

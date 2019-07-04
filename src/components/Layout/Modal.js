@@ -1,5 +1,5 @@
 import React from 'react'
-import TaskInfo from '../Task/TaskInfo'
+// import TaskInfo from '../Task/TaskInfo'
 
 import classes from './Modal.module.css'
 

@@ -34,7 +34,7 @@ class TaskInfo extends Component {
         // console.log(this.props._id)
         const description = this.state.todo.body 
             ? <div className={classes.TaskDescription}>{this.state.todo.body}</div>
-            :   <AddTaskDescription title={this.state.todo.title}/>
+            :   <AddTaskDescription {...this.state.todo}/>
     
         return (
             <div className={classes.TaskInfo}>
