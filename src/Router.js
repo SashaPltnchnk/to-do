@@ -1,6 +1,6 @@
 import React from 'react'
-import Board from './components/Layout/Layout'
-import MainPage from './components/MainPage/MainPaage'
+import Board from './components/Layout/Board'
+import MainPage from './components/MainPage/MainPage'
 import { Route } from 'react-router-dom'
 
 
