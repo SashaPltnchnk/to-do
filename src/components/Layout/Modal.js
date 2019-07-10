@@ -3,8 +3,7 @@ import React from 'react'
 import classes from './Modal.module.css'
 
 export default function Modal(props) {
-    function da(e) {
-        // debugger
+    function closeModal(e) {
         e.stopPropagation()
         props.closeTaskInfo()
     }
@@ -12,7 +11,7 @@ export default function Modal(props) {
         <div className={classes.Modal}>
             <button 
                 className={classes.CloseIcon}
-                onClick={da}
+                onClick={closeModal}
             >
                 x
             </button>

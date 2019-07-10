@@ -1,6 +1,7 @@
 export const FETCH_TASKS = 'FETCH_TASKS';
-export const ADD_TASK = 'ADD_TASK';
+export const ADD_TASK_TITLE = 'ADD_TASK_TITLE';
 export const DELETE_TASK = 'DELETE_TASK';
+export const ADD_TASK_DESCRIPTION = 'ADD_TASK_DESCRIPTION';
 
 
 
@@ -12,8 +13,8 @@ export const fetchTasks = () => ({
     }
 });
 
-export const addTask = (data) => ({
-    type: ADD_TASK,
+export const addTaskTitle = (data) => ({
+    type: ADD_TASK_TITLE,
     request: {
         url: '/todos/',
         method: 'POST',
@@ -34,6 +35,18 @@ export const deleteTask = (id) => ({
         asPromise: true
     }
 });
+
+export const addTaskDescription = (data, id) => ({
+    type: ADD_TASK_DESCRIPTION,
+    request: {
+        url: `/todos/${id}`,
+        method: 'PUT',
+        data
+    },
+    meta: {
+        asPromise: true
+    }
+})
 
 
 // export const removeError = () => dispatch => {

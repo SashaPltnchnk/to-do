@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { deleteTask, fetchTasks, addTask } from '../../store/actions/task'
+import { deleteTask, fetchTasks } from '../../store/actions/task'
 import AddTaskDescription from './AddTaskDescription'
 
 import classes from './TaskInfo.module.css'
@@ -34,7 +34,7 @@ class TaskInfo extends Component {
         // console.log(this.props._id)
         const description = this.state.todo.body 
             ? <div className={classes.TaskDescription}>{this.state.todo.body}</div>
-            :   <AddTaskDescription {...this.state.todo}/>
+            :   <AddTaskDescription {...this.state.todo} id={this.props._id} />
     
         return (
             <div className={classes.TaskInfo}>
@@ -58,6 +58,6 @@ const mapStateToProps = state => {
     }
   }
 
-const mapDispatchToProps = { deleteTask, fetchTasks, addTask };
+const mapDispatchToProps = { deleteTask, fetchTasks };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskInfo)

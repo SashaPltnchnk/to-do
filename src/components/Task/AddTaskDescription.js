@@ -1,13 +1,25 @@
 import React, {Component} from 'react'
-import { addTask, fetchTasks } from '../../store/actions/task'
+import { addTaskDescription, fetchTasks } from '../../store/actions/task'
 import { connect } from 'react-redux'
 
 import classes from '../Column/Column.module.css'
 
 class AddTaskDescription extends Component{
     state = {
-        body: '',
-        // title: ''
+        task: {
+            body: '',
+            title: ''
+        }
+      }
+
+      componentDidMount() {
+        this.setState(state => {
+            const targetTask = this.props.tasks.find(task => task._id === this.props.id)
+            const task = { title: targetTask.title, body: targetTask.body }
+            return {
+                ...state, 
+                task
+            }})
       }
     
       changeInput = (e) => {
@@ -15,7 +27,10 @@ class AddTaskDescription extends Component{
         this.setState(state => {
             return {
                 ...state,
-                [name]: value
+                task: {
+                    ...state.task,
+                    [name]: value
+                }
             }
         })
       }
@@ -23,24 +38,23 @@ class AddTaskDescription extends Component{
 
     submitHandler = e => {
         e.preventDefault();
-        this.props.addTask({body: this.state.body})
+        this.props.addTaskDescription(this.state.task, this.props.id)
           .then(() => {
-              console.warn("allo")
-            this.setState({body: ''});
+            // this.setState({body: ''});   
             this.props.fetchTasks();
-              
             })
     }
 
     render() {
-        console.log(this.props)
+        // console.log(this.props)
+        console.log(this.state)
         return (
             <form className={classes.AddCard} onSubmit={this.submitHandler}>
                 <input 
                     placeholder="Add description..." 
                     type="text" 
                     name="body" 
-                    value={this.state.body}
+                    value={this.state.task.body}
                     onChange={this.changeInput}
                     className={classes.AddList}/>
             </form>
@@ -49,6 +63,12 @@ class AddTaskDescription extends Component{
     
 }
 
-const mapDispatchToProps = { addTask, fetchTasks };
+const mapStateToProps = state => {
+    return {
+      tasks: state.tasks,
+    }
+  } 
 
-export default connect(null, mapDispatchToProps)(AddTaskDescription)
+const mapDispatchToProps = { addTaskDescription, fetchTasks };
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddTaskDescription)
