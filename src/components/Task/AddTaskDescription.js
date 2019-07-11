@@ -64,7 +64,7 @@ class AddTaskDescription extends Component{
 
 const mapStateToProps = state => {
     return {
-      tasks: state.tasks,
+      tasks: state.task.tasks,
     }
   } 
 

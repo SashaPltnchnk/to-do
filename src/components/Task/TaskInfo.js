@@ -54,7 +54,7 @@ class TaskInfo extends Component {
 
 const mapStateToProps = state => {
     return {
-      tasks: state.tasks,
+      tasks: state.task.tasks,
     }
   }
 
