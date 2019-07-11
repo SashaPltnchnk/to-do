@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { addTaskTitle, fetchTasks } from '../../store/actions/task'
 import { connect } from 'react-redux'
 
-import classes from './Column.module.css'
+import classes from './List.module.css'
 
 class AddCardTitle extends Component{
     state = {

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 // import Task from './Task/Task'
 import { connect } from 'react-redux'
-import { fetchTasks } from '../../store/actions/task'
+import { fetchTasks, deleteTask } from '../../store/actions/task'
 import Modal from '../Layout/Modal'
 
-import classes from './Column.module.css'
+import classes from './List.module.css'
 import TaskInfo from '../Task/TaskInfo';
 
 
@@ -24,8 +24,14 @@ class CardTitle extends Component {
   }
 
   closeTaskInfo = () => {
-    console.log("fucking shit")
     this.setState({isTaskInfoShown: false, currentId: null})
+  }
+
+  handleDeleting = id => {
+    this.props.deleteTask(id)
+      .then(() => {
+        this.props.fetchTasks()
+    })
   }
 
   render() {
@@ -40,13 +46,14 @@ class CardTitle extends Component {
                 {todo.title} 
                 {this.state.isTaskInfoShown ? 
                   <Modal 
-                    // id={this.state.currentId} 
                     closeTaskInfo={this.closeTaskInfo}
                     > 
                     <TaskInfo  _id={this.state.currentId} closeTaskInfo={this.closeTaskInfo}/>
                   </Modal> 
                   : null
                 }
+              {/* <i className="fas fa-pencil-alt"></i> */}
+              {/* <i className="far fa-trash-alt" onClick={() => this.handleDeleting(todo.id)} /> */}
         </div>)
     })
 
@@ -64,6 +71,6 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = { fetchTasks };
+const mapDispatchToProps = { fetchTasks, deleteTask };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardTitle);

@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { addTaskDescription, fetchTasks } from '../../store/actions/task'
 import { connect } from 'react-redux'
 
-import classes from '../Column/Column.module.css'
+import classes from '../List/List.module.css'
 
 class AddTaskDescription extends Component{
     state = {
@@ -39,8 +39,7 @@ class AddTaskDescription extends Component{
     submitHandler = e => {
         e.preventDefault();
         this.props.addTaskDescription(this.state.task, this.props.id)
-          .then(() => {
-            // this.setState({body: ''});   
+          .then(() => {   
             this.props.fetchTasks();
             })
     }

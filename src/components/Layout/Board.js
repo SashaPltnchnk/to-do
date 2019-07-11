@@ -1,13 +1,16 @@
 import React from 'react'
-import Column from '../Column/Column'
+import List from '../List/List'
+import AddList from '../List/AddList'
 
 import classes from './Board.module.css'
 
-export default function Layout() {
+export default function Board() {
     return (
         <main className={classes.Board}>
             <div className={classes.BoardName}>Don't give up</div>
-            <Column />
+            <List />
+            <List />
+            <AddList />
         </main>
     )
 }
