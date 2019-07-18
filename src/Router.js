@@ -8,7 +8,11 @@ export default function router() {
     return ( 
         <>
             <Route exact path='/' component={MainPage} />
-            <Route exact path='/board1' component={Board} />
+            {/* <Route exact path={`/{board.id}`} component={Board} /> */}
+            <Route 
+                exact path={`/{board.id}`} 
+                render={props => <Board {...props}  />}
+            />
         </>
      );
 }

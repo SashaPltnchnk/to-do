@@ -15,7 +15,8 @@
     "redux-saga": "^1.0.4",
     "redux-saga-requests": "^0.25.0",
     "redux-saga-requests-axios": "^0.7.6",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
