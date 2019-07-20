@@ -9,13 +9,20 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch(action.type) {
         case actionTypes.FETCH_BOARDS_SUCCESS:
-            console.log(action.boards)
+            // console.log(action.boards)
             return {
                 ...state,
                 boards: action.boards
             };
-            return state;
-            break;
+        case success(actionTypes.ADD_LIST):
+            console.log(action.data)
+            return {
+                ...state,
+                // boards: [ 
+                //     ...state.boards,
+                    
+                // ]
+            }
         case error(actionTypes.FETCH_BOARDS): 
             console.error(action.error.message)
             return state;

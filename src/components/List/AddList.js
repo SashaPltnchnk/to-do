@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { addList, fetchBoards } from '../../store/actions/board'
 
 import classes from './List.module.css'
 
@@ -14,13 +16,17 @@ class AddList extends Component{
 
     handleSubmit = e => {
         e.preventDefault();
-        // request to send listName
-        console.log("cleaning")
-        this.setState({listName: ''})        
+        this.props.addList({listName: this.state.listName}, this.props.id)
+            .then(() => {
+                this.props.fetchBoards()
+                this.setState({listName: ''})  
+            })
+        // console.log("cleaning")
+              
     }
 
     render() {
-        // console.log(this.state.listName)
+        // console.log(this.props.id)
         return (
             <>
                 <div className={classes.ListPure}>
@@ -33,10 +39,11 @@ class AddList extends Component{
                             />
                     </form>
                 </div>
-                <div>{this.state.listName}</div>
             </>
         )
     }
 }
 
-export default AddList
+const mapDispatchToProps = { addList, fetchBoards };
+
+export default connect(null, mapDispatchToProps)(AddList)

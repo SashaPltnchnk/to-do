@@ -8,16 +8,22 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch(action.type) {
-        case success(actionTypes.FETCH_LISTS):
+        case actionTypes.FETCH_LISTS_SUCCESS:
+                // console.log(action.lists)
+                return {
+                    ...state,
+                    lists: action.lists
+                };
+        // case success(actionTypes.FETCH_LISTS):
             // console.log(action.data)
             // return {
             //     ...state,
             //     lists: action.data
             // };
-            return state;
-        case error(actionTypes.FETCH_LISTS): 
-            console.error(action.error.message)
-            return state;
+        //     return state;
+        // case error(actionTypes.FETCH_LISTS): 
+        //     console.error(action.error.message)
+        //     return state;
         case success(actionTypes.ADD_LIST):
             // return {
             //     ...state,
