@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { addBoard, fetchBoards } from '../../store/actions/board'
 
 import classes from '../MainPage/MainPage.module.css'
 import styles from '../List/List.module.css'
@@ -15,13 +17,14 @@ class AddBoard extends Component{
 
     handleSubmit = e => {
         e.preventDefault();
-        // request to send listName
-        console.log("cleaning")
-        this.setState({boardName: ''})        
+        this.props.addBoard({boardName: this.state.boardName})
+            .then(() => {
+                this.props.fetchBoards()
+                this.setState({boardName: ''}) 
+            })       
     }
 
     render() {
-        // console.log(this.state.listName)
         return (
             <>
                 <div  className={classes.LilBoard}>
@@ -34,10 +37,11 @@ class AddBoard extends Component{
                             />
                     </form>
                 </div>
-                <div>{this.state.boardName}</div>
             </>
         )
     }
 }
 
-export default AddBoard
+const mapDispatchToProps = { addBoard, fetchBoards };
+
+export default connect(null, mapDispatchToProps)(AddBoard)

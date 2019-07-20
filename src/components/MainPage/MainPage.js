@@ -1,30 +1,43 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import AddBoard from '../Layout/AddBoard'
+import { connect } from 'react-redux'
+import { fetchBoards } from '../../store/actions/board'
 
 import classes from './MainPage.module.css'
 
-import boards from '../../fake'
 
 class MainPage extends Component {
+  componentDidMount() {
+    this.props.fetchBoards();
+  }
+  
     render() {
-      const aaaa = boards.map(board => (
-        // <div key={board.id}>{board.name}</div>
-        <Link to={`/{board.id}`}><div className={classes.LilBoard} >{board.name}</div></Link>
 
+      const boards = this.props.boards.map(board => (
+        <div key={board.id}>
+          <Link to={`/${board.id}`}><div className={classes.LilBoard} >{board.boardName}</div></Link>
+        </div>
+        
       ))
         return (
             <div className={classes.MainPage}>
                 <div className={classes.Header}>Your Boards:</div>
-                
                 <div className={classes.LilBoards}>
-                  {aaaa}
-                    {/* <Link to='/board1'><div className={classes.LilBoard}>My first board</div></Link> */}
-                    <AddBoard />
+                  {boards}
+                  <AddBoard />
                 </div>
             </div>
         )
     }
 }
+
+const mapStateToProps = state => {
+  return {
+    boards: state.board.boards,
+  }
+}
+
+const mapDispatchToProps = { fetchBoards };
  
-export default MainPage
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage)
