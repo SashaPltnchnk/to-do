@@ -8,19 +8,19 @@ import styles from '../List/List.module.css'
 
 class AddBoard extends Component{
     state = {
-        boardName: ''
+        name: ''
     }
 
     changeHandler = e => {
-        this.setState({boardName: e.target.value})
+        this.setState({name: e.target.value})
     }
 
     handleSubmit = e => {
         e.preventDefault();
-        this.props.addBoard({boardName: this.state.boardName})
+        this.props.addBoard({name: this.state.name})
             .then(() => {
                 this.props.fetchBoards()
-                this.setState({boardName: ''}) 
+                this.setState({name: ''}) 
             })       
     }
 
@@ -32,7 +32,7 @@ class AddBoard extends Component{
                         <input 
                             className={styles.AddList} 
                             placeholder='Add Board..' 
-                            value={this.state.boardName}
+                            value={this.state.name}
                             onChange={this.changeHandler}
                             />
                     </form>

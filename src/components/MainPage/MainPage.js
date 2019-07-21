@@ -8,15 +8,15 @@ import classes from './MainPage.module.css'
 
 
 class MainPage extends Component {
-  componentDidMount() {
-    this.props.fetchBoards();
-  }
+  // componentDidMount() {
+  //   this.props.fetchBoards();
+  // }
   
     render() {
 
       const boards = this.props.boards.map(board => (
         <div key={board.id}>
-          <Link to={`/${board.id}`}><div className={classes.LilBoard} >{board.boardName}</div></Link>
+          <Link to={`/${board.id}`}><div className={classes.LilBoard} >{board.name}</div></Link>
         </div>
         
       ))
