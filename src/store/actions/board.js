@@ -14,6 +14,33 @@ export const fetchBoards = () => ({
     }
 });
 
+
+export const addBoard = (data) => ({
+    type: ADD_BOARD,
+    request: {
+        url: '/board/',
+        method: 'POST',
+        data
+    },
+    meta: {
+        asPromise: true
+    }
+});
+
+export const addList = (data, id) => ({
+    type: ADD_LIST,
+    request: {
+        url: `/board/${id}/todo-list/`,
+        method: 'POST',
+        data
+    },
+    meta: {
+        asPromise: true
+    }
+});
+
+
+
 // export const fetchBoardsSuccess = (boards) => {
 //     // console.log(boards)
 //     return {
@@ -42,28 +69,3 @@ export const fetchBoards = () => ({
 //         });
 //     };
 // };
-
-
-export const addBoard = (data) => ({
-    type: ADD_BOARD,
-    request: {
-        url: '/board/',
-        method: 'POST',
-        data
-    },
-    meta: {
-        asPromise: true
-    }
-});
-
-export const addList = (data, id) => ({
-    type: ADD_LIST,
-    request: {
-        url: `/board/${id}/lists.json`,
-        method: 'POST',
-        data
-    },
-    meta: {
-        asPromise: true
-    }
-});

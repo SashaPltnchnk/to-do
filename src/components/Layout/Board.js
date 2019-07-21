@@ -26,9 +26,9 @@ class Board extends Component {
     
         return (
             <main className={classes.Board}>
-                <div className={classes.BoardName}>{neededBoard.boardName}</div>
-                {/* <List {...neededBoard}/>
-                <AddList {...neededBoard} /> */}
+                <div className={classes.BoardName}>{neededBoard.name}</div>
+                <List {...neededBoard}/>
+                {/* <AddList {...neededBoard} /> */}
             </main>
         )
     }

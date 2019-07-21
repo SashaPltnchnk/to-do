@@ -8,14 +8,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch(action.type) {
-        // case actionTypes.FETCH_BOARDS_SUCCESS:
-        //     // console.log(action.boards)
-        //     return {
-        //         ...state,
-        //         boards: action.boards
-        //     };
         case success(actionTypes.FETCH_BOARDS):
-            console.log(action.data)
             return {
                 ...state,
                 boards: action.data
@@ -33,6 +26,8 @@ const reducer = (state = initialState, action) => {
                     
                 // ]
             }
+        case error(actionTypes.ADD_LIST):
+            return state;
         
         case success(actionTypes.ADD_BOARD):
             // return {
