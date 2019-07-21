@@ -20,9 +20,7 @@ class AddList extends Component{
             .then(() => {
                 this.props.fetchBoards()
                 this.setState({name: ''})  
-            })
-        // console.log("cleaning")
-              
+            })             
     }
 
     render() {

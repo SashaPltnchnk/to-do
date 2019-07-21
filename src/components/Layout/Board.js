@@ -14,14 +14,13 @@ class Board extends Component {
     
     render() {
         // console.log(this.props)
-        // debugger
         const neededBoard = this.props.boards
             .find(board => this.props.match.params.boardId === board.id)
 
         if (!neededBoard) {
             return <div>L O A D I N G  . . . </div>
         } 
-        
+
         const lists = neededBoard.lists.map(list => (
             <List key={list.id} {...list} />
         ))

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-// import Task from './Task/Task'
 import { connect } from 'react-redux'
-import { fetchTasks, deleteTask } from '../../store/actions/task'
+// import { fetchTasks, deleteTask } from '../../store/actions/task'
 import Modal from '../Layout/Modal'
 
 import classes from './List.module.css'
@@ -15,9 +14,6 @@ class CardTitle extends Component {
     currentId: null
   }
 
-  componentDidMount() {
-    this.props.fetchTasks()
-  }
 
   openTaskInfo = id => {
     this.setState({isTaskInfoShown: true, currentId: id})
@@ -27,12 +23,12 @@ class CardTitle extends Component {
     this.setState({isTaskInfoShown: false, currentId: null})
   }
 
-  handleDeleting = id => {
-    this.props.deleteTask(id)
-      .then(() => {
-        this.props.fetchTasks()
-    })
-  }
+  // handleDeleting = id => {
+  //   this.props.deleteTask(id)
+  //     .then(() => {
+  //       this.props.fetchTasks()
+  //   })
+  // }
 
   render() {
     let newTaskData = this.props.tasks.map(todo => {
@@ -57,9 +53,17 @@ class CardTitle extends Component {
         </div>)
     })
 
+    const tasks = this.props.tasks.map(task => (
+      <div 
+        className={classes.CardTitle}
+        key={task.id}
+        >{task.title}</div>
+    ))
+
     return (
       <div>
-        {newTaskData}
+        {/* {newTaskData} */}
+        {tasks}
       </div>
     )
   }
@@ -67,10 +71,10 @@ class CardTitle extends Component {
 
 const mapStateToProps = state => {
   return {
-    tasks: state.task.tasks,
+    // tasks: state.task.tasks,
   }
 }
 
-const mapDispatchToProps = { fetchTasks, deleteTask };
+// const mapDispatchToProps = { fetchTasks, deleteTask };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CardTitle);
+export default connect(mapStateToProps )(CardTitle);

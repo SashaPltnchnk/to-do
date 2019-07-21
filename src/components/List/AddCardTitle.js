@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import { addTaskTitle, fetchTasks } from '../../store/actions/task'
+// import { addTaskTitle, fetchTasks } from '../../store/actions/task'
+import { addTaskTitle, fetchBoards} from '../../store/actions/board'
 import { connect } from 'react-redux'
 
 import classes from './List.module.css'
@@ -23,11 +24,11 @@ class AddCardTitle extends Component{
 
     submitHandler = e => {
         e.preventDefault();
-        this.props.addTaskTitle({title: this.state.title})
+        this.props.addTaskTitle({title: this.state.title}, this.props.listId)
           .then(() => {
               console.warn("allo")
             this.setState({title: ''});
-            this.props.fetchTasks();
+            this.props.fetchBoards();
               
             })
     }
@@ -48,6 +49,6 @@ class AddCardTitle extends Component{
     
 }
 
-const mapDispatchToProps = { addTaskTitle, fetchTasks };
+const mapDispatchToProps = { addTaskTitle, fetchBoards };
 
 export default connect(null, mapDispatchToProps)(AddCardTitle)
