@@ -1,29 +1,29 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { deleteTask, fetchTasks } from '../../store/actions/task'
+import { deleteTask  } from '../../store/actions/task'
 import AddTaskDescription from './AddTaskDescription'
 
 import classes from './TaskInfo.module.css'
 
 
 class TaskInfo extends Component {
-    state = {
-        task: {
-            title: '',
-            body: ''
-        }
-    }
+    // state = {
+    //     task: {
+    //         title: '',
+    //         body: ''
+    //     }
+    // }
 
-    componentDidMount() {
-        this.setState(state => {
-            const targetTask = this.props.task
-            const task = { title: targetTask.title, body: targetTask.body }
-            return {
-                ...state,
-                task
-            }
-            })
-    }
+    // componentDidMount() {
+    //     this.setState(state => {
+    //         const targetTask = this.props.task
+    //         const task = { title: targetTask.title, body: targetTask.body }
+    //         return {
+    //             ...state,
+    //             task
+    //         }
+    //     })
+    // }
    
 
     handleDeletingTasks = id => {
@@ -35,19 +35,18 @@ class TaskInfo extends Component {
     }
     
     render () {
-        // console.warn(this.props)
-        console.warn(this.state)
-        // console.log(this.props._id)
+        // console.warn(this.state)
 
-        const description = this.state.task.body 
-            ? <div className={classes.TaskDescription}>{this.state.task.body}</div>
-            :   <AddTaskDescription {...this.state.task} id={this.props._id} />
+
+        const description = this.props.task.body 
+            ? <div className={classes.TaskDescription}>{this.props.task.body}</div>
+            :   <AddTaskDescription task={this.props.task}  />
     
         return (
             <div className={classes.TaskInfo}>
-                <div className={classes.TaskTitle}>{this.state.task.title}</div>
+                <div className={classes.TaskTitle}>{this.props.task.title}</div>
                 <div className={classes.Description}>Description</div>
-                {/* {description} */}
+                {description}
 
                 <div 
                     className={classes.TaskDelete} 
@@ -59,6 +58,6 @@ class TaskInfo extends Component {
     }
   
 
-const mapDispatchToProps = { deleteTask, fetchTasks };
+const mapDispatchToProps = { deleteTask };
 
 export default connect(null, mapDispatchToProps)(TaskInfo)

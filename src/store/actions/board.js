@@ -5,6 +5,7 @@ export const FETCH_BOARDS = 'FETCH_BOARDS';
 export const ADD_BOARD = 'ADD_BOARD';
 export const ADD_LIST = 'ADD_LIST';
 export const ADD_TASK_TITLE = 'ADD_TASK_TITLE';
+export const ADD_TASK_DESCRIPTION = 'ADD_TASK_DESCRIPTION';
 
 
 export const fetchBoards = () => ({
@@ -53,6 +54,17 @@ export const addTaskTitle = (data, id) => ({
     }
 });
 
+export const addTaskDescription = (data, id) => ({
+    type: ADD_TASK_DESCRIPTION,
+    request: {
+        url: `/todo-list/${id}/todo`,
+        method: 'PUT',
+        data
+    },
+    meta: {
+        asPromise: true
+    }
+});
 
 // export const fetchBoardsSuccess = (boards) => {
 //     // console.log(boards)

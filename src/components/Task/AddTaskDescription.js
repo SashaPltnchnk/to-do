@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { addTaskDescription, fetchTasks } from '../../store/actions/task'
+import { addTaskDescription } from '../../store/actions/board'
 import { connect } from 'react-redux'
 
 import classes from '../List/List.module.css'
@@ -14,13 +14,15 @@ class AddTaskDescription extends Component{
 
       componentDidMount() {
         this.setState(state => {
-            const targetTask = this.props.tasks.find(task => task._id === this.props.id)
+            const targetTask = this.props.task
             const task = { title: targetTask.title, body: targetTask.body }
             return {
-                ...state, 
+                ...state,
                 task
-            }})
-      }
+            }
+        })
+    }
+
     
       changeInput = (e) => {
         const {name, value} = e.target
@@ -39,9 +41,9 @@ class AddTaskDescription extends Component{
     submitHandler = e => {
         e.preventDefault();
         this.props.addTaskDescription(this.state.task, this.props.id)
-          .then(() => {   
-            this.props.fetchTasks();
-            })
+          // .then(() => {   
+          //   this.props.fetchTasks();
+          //   })
     }
 
     render() {
@@ -68,6 +70,6 @@ const mapStateToProps = state => {
     }
   } 
 
-const mapDispatchToProps = { addTaskDescription, fetchTasks };
+const mapDispatchToProps = { addTaskDescription };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddTaskDescription)
