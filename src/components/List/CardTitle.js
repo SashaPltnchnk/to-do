@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-// import { fetchTasks, deleteTask } from '../../store/actions/task'
-import Modal from '../Layout/Modal'
 
+import Modal from '../Layout/Modal'
 import classes from './List.module.css'
 import TaskInfo from '../Task/TaskInfo';
 
@@ -31,50 +29,38 @@ class CardTitle extends Component {
   // }
 
   render() {
-    let newTaskData = this.props.tasks.map(todo => {
-      return (
-        <div 
-            {...todo} 
-            className={classes.CardTitle}
-            key={todo.id}
-            id={todo.id}
-            onClick={() => this.openTaskInfo(todo.id)}>
-                {todo.title} 
-                {this.state.isTaskInfoShown ? 
-                  <Modal 
-                    closeTaskInfo={this.closeTaskInfo}
-                    > 
-                    <TaskInfo  _id={this.state.currentId} closeTaskInfo={this.closeTaskInfo}/>
-                  </Modal> 
-                  : null
-                }
-              {/* <i className="fas fa-pencil-alt"></i> */}
-              {/* <i className="far fa-trash-alt" onClick={() => this.handleDeleting(todo.id)} /> */}
-        </div>)
-    })
 
     const tasks = this.props.tasks.map(task => (
       <div 
         className={classes.CardTitle}
         key={task.id}
-        >{task.title}</div>
+        onClick={() => this.openTaskInfo(task.id)}
+        
+        >
+          {task.title}
+          {/* <i className="fas fa-pencil-alt"></i> */}
+          {/* <i className="far fa-trash-alt" onClick={() => this.handleDeleting(todo.id)} /> */}
+        </div>
     ))
+
+    const taskInfo = this.state.isTaskInfoShown
+      ? <Modal closeTaskInfo={this.closeTaskInfo}>
+        <TaskInfo 
+          task={this.props.tasks.find(task => task.id === this.state.currentId)}
+          _id={this.state.currentId} 
+          closeTaskInfo={this.closeTaskInfo} />
+      </Modal>
+      : null
 
     return (
       <div>
-        {/* {newTaskData} */}
         {tasks}
+        {taskInfo}
       </div>
     )
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    // tasks: state.task.tasks,
-  }
-}
 
-// const mapDispatchToProps = { fetchTasks, deleteTask };
 
-export default connect(mapStateToProps )(CardTitle);
+export default CardTitle;

@@ -8,16 +8,21 @@ import classes from './TaskInfo.module.css'
 
 class TaskInfo extends Component {
     state = {
-        todo: {
+        task: {
             title: '',
             body: ''
         }
     }
 
     componentDidMount() {
-        this.setState(state => ({
-            ...state,
-            todo: this.props.tasks.find(task => task.id === this.props._id)}))
+        this.setState(state => {
+            const targetTask = this.props.task
+            const task = { title: targetTask.title, body: targetTask.body }
+            return {
+                ...state,
+                task
+            }
+            })
     }
    
 
@@ -30,17 +35,19 @@ class TaskInfo extends Component {
     }
     
     render () {
-        // console.warn(this.state.todo)
+        // console.warn(this.props)
+        console.warn(this.state)
         // console.log(this.props._id)
-        const description = this.state.todo.body 
-            ? <div className={classes.TaskDescription}>{this.state.todo.body}</div>
-            :   <AddTaskDescription {...this.state.todo} id={this.props._id} />
+
+        const description = this.state.task.body 
+            ? <div className={classes.TaskDescription}>{this.state.task.body}</div>
+            :   <AddTaskDescription {...this.state.task} id={this.props._id} />
     
         return (
             <div className={classes.TaskInfo}>
-                <div className={classes.TaskTitle}>{this.state.todo.title}</div>
+                <div className={classes.TaskTitle}>{this.state.task.title}</div>
                 <div className={classes.Description}>Description</div>
-                {description}
+                {/* {description} */}
 
                 <div 
                     className={classes.TaskDelete} 
@@ -52,12 +59,6 @@ class TaskInfo extends Component {
     }
   
 
-const mapStateToProps = state => {
-    return {
-      tasks: state.task.tasks,
-    }
-  }
-
 const mapDispatchToProps = { deleteTask, fetchTasks };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskInfo)
+export default connect(null, mapDispatchToProps)(TaskInfo)
