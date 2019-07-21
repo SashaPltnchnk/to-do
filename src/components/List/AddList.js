@@ -7,19 +7,19 @@ import classes from './List.module.css'
 
 class AddList extends Component{
     state = {
-        listName: ''
+        name: ''
     }
 
     changeHandler = e => {
-        this.setState({listName: e.target.value})
+        this.setState({name: e.target.value})
     }
 
     handleSubmit = e => {
         e.preventDefault();
-        this.props.addList({listName: this.state.listName}, this.props.id)
+        this.props.addList({name: this.state.name}, this.props.id)
             .then(() => {
                 this.props.fetchBoards()
-                this.setState({listName: ''})  
+                this.setState({name: ''})  
             })
         // console.log("cleaning")
               
@@ -34,7 +34,7 @@ class AddList extends Component{
                         <input 
                             className={classes.AddList} 
                             placeholder='Add List..' 
-                            value={this.state.listName}
+                            value={this.state.name}
                             onChange={this.changeHandler}
                             />
                     </form>

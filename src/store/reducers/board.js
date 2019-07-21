@@ -16,30 +16,16 @@ const reducer = (state = initialState, action) => {
         case error(actionTypes.FETCH_BOARDS): 
             console.error(action.error.message)
             return state;
-
-        case success(actionTypes.ADD_LIST):
-            console.log(action.data)
-            return {
-                ...state,
-                // boards: [ 
-                //     ...state.boards,
-                    
-                // ]
-            }
-        case error(actionTypes.ADD_LIST):
-            return state;
         
         case success(actionTypes.ADD_BOARD):
-            // return {
-            //     ...state,
-            //    boards: [
-            //        ...state.boards
-            //    ]
-            // };
             return state;
         case error(actionTypes.ADD_BOARD):
-            // console.error(action.error)
             return state;   
+        
+        case success(actionTypes.ADD_LIST):
+            return state;
+        case error(actionTypes.ADD_LIST):
+            return state;
             
         default: return state;
     }  

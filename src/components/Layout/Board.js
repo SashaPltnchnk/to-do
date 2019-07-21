@@ -18,17 +18,20 @@ class Board extends Component {
         const neededBoard = this.props.boards
             .find(board => this.props.match.params.boardId === board.id)
 
-        
         if (!neededBoard) {
             return <div>L O A D I N G  . . . </div>
-        }
-
+        } 
+        
+        const lists = neededBoard.lists.map(list => (
+            <List key={list.id} {...list} />
+        ))
     
         return (
             <main className={classes.Board}>
                 <div className={classes.BoardName}>{neededBoard.name}</div>
-                <List {...neededBoard}/>
-                {/* <AddList {...neededBoard} /> */}
+                {lists}
+                {/* <List {...neededBoard}/> */}
+                <AddList {...neededBoard} />
             </main>
         )
     }
